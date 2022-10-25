@@ -6,9 +6,7 @@
 
         string[] array = {"kelless","keenness","Alfalggo"};
         foreach(var s in Duplicados(array))
-        {
-            Console.WriteLine("Se liga: " + s);
-        }
+            Console.WriteLine(s);
     }
 
     static long Soma(long n)
@@ -41,7 +39,3 @@
         return tor;
     }
 }
-
-
-// DOOG
-// DO
