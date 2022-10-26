@@ -4,5 +4,5 @@ namespace TesteDotnet.Domain.Interfaces.Repositories;
 
 public interface IPessoaRepository : IBaseRepository<Guid, Pessoa>
 {
-    List<Contato> GetContatos(Guid id);
+    Task<List<Contato>> GetContatos(Guid id);
 }

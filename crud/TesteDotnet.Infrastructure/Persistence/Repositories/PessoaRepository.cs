@@ -11,7 +11,7 @@ public class PessoaRepository : BaseRepository<Guid, Pessoa>, IPessoaRepository
         
     }
     
-    public List<Contato> GetContatos(Guid id)
+    public async Task<List<Contato>> GetContatos(Guid id)
     {
         throw new NotImplementedException();
     }
