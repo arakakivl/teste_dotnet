@@ -13,6 +13,12 @@ public class PessoaRepository : BaseRepository<Guid, Pessoa>, IPessoaRepository
     
     public async Task<List<Contato>> GetContatos(Guid id)
     {
-        throw new NotImplementedException();
+        var pessoa = await DbSet.FindAsync(id);
+
+        // Before reaching this call, we're going to verify if this 'pessoa' exists or not in the database.
+        if (pessoa is null)
+            return new List<Contato>();
+        else
+            return pessoa.Contatos;
     }
 }

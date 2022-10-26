@@ -19,8 +19,6 @@ public class UnitOfWork : IUnitOfWork
         ContatoRepository ??= new ContatoRepository(context);
     }
 
-    public async Task SaveChangesAsync()
-    {
-        throw new NotImplementedException();
-    }
+    public async Task SaveChangesAsync() =>
+        await _context.SaveChangesAsync();
 }
