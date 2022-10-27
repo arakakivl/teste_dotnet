@@ -2,6 +2,7 @@ namespace TesteDotnet.Domain.Entities;
 
 public class Contato
 {
+    public Guid Id { get; } = Guid.NewGuid();
     public Guid PessoaId { get; set; }
 
     public string Nome { get; set; }

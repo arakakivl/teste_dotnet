@@ -16,7 +16,7 @@ public class AppDbContext : DbContext
             .HasKey(p => p.Id);
 
         builder.Entity<Contato>()
-            .HasKey(c => c.Celular);
+            .HasKey(c => c.Id);
 
         builder.Entity<Pessoa>()
             .HasMany(p => p.Contatos)
