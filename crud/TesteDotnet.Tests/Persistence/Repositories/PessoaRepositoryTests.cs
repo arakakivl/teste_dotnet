@@ -7,7 +7,7 @@ using TesteDotnet.Infrastructure.Persistence;
 using TesteDotnet.Infrastructure.Persistence.Repositories;
 using Xunit;
 
-namespace TesteDotnet.Tests.Persistence;
+namespace TesteDotnet.Tests.Persistence.Repositories;
 
 public class PessoaRepositoryTests
 {
