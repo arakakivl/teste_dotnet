@@ -9,4 +9,9 @@ public class ContatoRepository : BaseRepository<Guid, Contato>, IContatoReposito
     {
         
     }
+
+    public async Task<Contato?> GetContatoAsync(Guid pessoaId, long celular)
+    {
+        throw new NotImplementedException();
+    }
 }
