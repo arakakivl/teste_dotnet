@@ -5,14 +5,14 @@ namespace TesteDotnet.Application.Models.InputModels;
 public class NewPessoaInputModel
 {
     [Required]
-    public string Nome { get; } = null!;
+    public string Nome { get; init; } = null!;
     
     [Required]
     [EmailAddress]
-    public string Email { get; } = null!;
+    public string Email { get; init; } = null!;
     
     [Required]
-    public long CPF { get; }
+    public long CPF { get; init; }
 
     // Info that may be null
     public long? CEP { get; set; }
