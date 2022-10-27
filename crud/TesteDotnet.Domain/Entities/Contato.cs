@@ -2,11 +2,11 @@ namespace TesteDotnet.Domain.Entities;
 
 public class Contato
 {
-    public Guid Id { get; } = Guid.NewGuid();
-    public Guid PessoaId { get; set; }
+    public Guid Id { get; init; } = Guid.NewGuid();
+    public Guid PessoaId { get; init; }
 
-    public string Nome { get; set; }
-    public long Celular { get; set; }
+    public string Nome { get; init; }
+    public long Celular { get; init; }
 
     public Contato(Guid pessoaId, string nome, long celular)
     {

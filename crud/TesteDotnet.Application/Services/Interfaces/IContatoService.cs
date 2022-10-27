@@ -7,7 +7,7 @@ public interface IContatoService
 {
     Task CreateContatoAsync(NewContatoInputModel model);
 
-    Task<ContatoViewModel> GetContatoAsync(Guid pessoaId, long celular);
+    Task<ContatoViewModel?> GetContatoAsync(Guid pessoaId, long celular);
     Task<List<ContatoViewModel>> GetContatosAsync(Guid? pessoaId);
 
     Task UpdateContatoAsync(Guid pessoaId, NewContatoInputModel model);

@@ -1,6 +1,8 @@
+using TesteDotnet.Application.Extensions;
 using TesteDotnet.Application.Models.InputModels;
 using TesteDotnet.Application.Models.ViewModels;
 using TesteDotnet.Application.Services.Interfaces;
+using TesteDotnet.Domain.Entities;
 using TesteDotnet.Domain.Interfaces;
 
 namespace TesteDotnet.Application.Services;
@@ -13,28 +15,44 @@ public class ContatoService : IContatoService
         _unitOfWork = unitOfWork;
     }
 
-    public Task CreateContatoAsync(NewContatoInputModel model)
+    public async Task CreateContatoAsync(NewContatoInputModel model)
     {
-        throw new NotImplementedException();
+        Contato c = new(model.PessoaId, model.Nome, model.Celular);
+
+        await _unitOfWork.ContatoRepository.AddAsync(c);
+        await _unitOfWork.SaveChangesAsync();
     }
 
-    public Task DeleteContatoAsync(Guid pessoaId, long celular)
+    public async Task<ContatoViewModel?> GetContatoAsync(Guid pessoaId, long celular)
     {
-        throw new NotImplementedException();
+        var r = await _unitOfWork.ContatoRepository.GetContatoAsync(pessoaId, celular);
+        if (r is null)
+            return null;
+
+        return r.AsViewModel();
     }
 
-    public Task<ContatoViewModel> GetContatoAsync(Guid pessoaId, long celular)
+    public async Task<List<ContatoViewModel>> GetContatosAsync(Guid? pessoaId)
     {
-        throw new NotImplementedException();
+        if (pessoaId is null)
+            return (await _unitOfWork.ContatoRepository.GetEntitiesAsync()).Select(x => x.AsViewModel()).ToList();
+        else
+            return (await _unitOfWork.PessoaRepository.GetContatos((Guid)pessoaId)).Select(x => x.AsViewModel()).ToList();
     }
 
-    public Task<List<ContatoViewModel>> GetContatosAsync(Guid? pessoaId)
+    public async Task UpdateContatoAsync(Guid pessoaId, NewContatoInputModel model)
     {
-        throw new NotImplementedException();
+        var c = new Contato(pessoaId, model.Nome, model.Celular);
+
+        await _unitOfWork.ContatoRepository.UpdateAsync(c);
+        await _unitOfWork.SaveChangesAsync();
     }
 
-    public Task UpdateContatoAsync(Guid pessoaId, NewContatoInputModel model)
+    public async Task DeleteContatoAsync(Guid pessoaId, long celular)
     {
-        throw new NotImplementedException();
+        var c = await _unitOfWork.ContatoRepository.GetContatoAsync(pessoaId, celular);
+        
+        await _unitOfWork.ContatoRepository.DeleteAsync(c!.Id);
+        await _unitOfWork.SaveChangesAsync();
     }
 }

@@ -78,7 +78,9 @@ public class ContatoServiceTests
     {
         // Arrange
         var contato = new Contato(Guid.NewGuid(), "", 1111123456789);
-        _unitOfWorkStub.Setup(x => x.ContatoRepository.GetEntitiesAsync(c => c.PessoaId == contato.PessoaId, "")).ReturnsAsync(new List<Contato>() { contato });
+
+        _unitOfWorkStub.Setup(x => x.ContatoRepository.GetEntitiesAsync()).ReturnsAsync(new List<Contato>() { contato });
+        _unitOfWorkStub.Setup(x => x.PessoaRepository.GetContatos(contato.PessoaId)).ReturnsAsync(new List<Contato>() { contato });
 
         // Act
         var result = await _sut.GetContatosAsync(contato.PessoaId);

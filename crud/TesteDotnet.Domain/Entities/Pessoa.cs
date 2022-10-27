@@ -2,12 +2,12 @@ namespace TesteDotnet.Domain.Entities;
 
 public class Pessoa
 {
-    public Guid Id { get; } = Guid.NewGuid();
+    public Guid Id { get; init; } = Guid.NewGuid();
 
-    public string Nome { get; }
-    public string Email { get; }
+    public string Nome { get; init; }
+    public string Email { get; init; }
     
-    public long CPF { get; }
+    public long CPF { get; init; }
 
     // Info that may be null
     public long? CEP { get; set; }
