@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteDotnet.Application", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteDotnet.Tests", "TesteDotnet.Tests\TesteDotnet.Tests.csproj", "{6E8AE40B-553A-4431-8EB0-90F09331E6B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteDotnet.Api", "TesteDotnet.Api\TesteDotnet.Api.csproj", "{D096888F-3F85-4F33-AAE1-1C7329240D02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{6E8AE40B-553A-4431-8EB0-90F09331E6B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E8AE40B-553A-4431-8EB0-90F09331E6B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E8AE40B-553A-4431-8EB0-90F09331E6B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D096888F-3F85-4F33-AAE1-1C7329240D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D096888F-3F85-4F33-AAE1-1C7329240D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D096888F-3F85-4F33-AAE1-1C7329240D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D096888F-3F85-4F33-AAE1-1C7329240D02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
