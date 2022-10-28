@@ -42,9 +42,12 @@ public class ContatoService : IContatoService
 
     public async Task UpdateContatoAsync(Guid pessoaId, NewContatoInputModel model)
     {
-        var c = new Contato(pessoaId, model.Nome, model.Celular);
+        var data = await _unitOfWork.PessoaRepository.GetContatos(pessoaId);
+        var c = data.FirstOrDefault(x => x.Celular == model.OldCelular);
 
-        await _unitOfWork.ContatoRepository.UpdateAsync(c);
+        var contato = new Contato(model.PessoaId, model.Nome, model.Celular);
+
+        await _unitOfWork.ContatoRepository.UpdateAsync(contato);
         await _unitOfWork.SaveChangesAsync();
     }
 

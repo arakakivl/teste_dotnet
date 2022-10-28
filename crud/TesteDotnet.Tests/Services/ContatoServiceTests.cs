@@ -93,18 +93,29 @@ public class ContatoServiceTests
     public async Task UpdateContatoAsync_ShouldCallUpdate_WhenExecuted()
     {
         // Arrange
+        var pessoaId = Guid.NewGuid();
+        var oldCelular = 12345678900000;
+
+        var data = new List<Contato>()
+        {
+            new Contato(pessoaId, "someName", oldCelular)
+        };
+
         NewContatoInputModel model = new()
         {
-            PessoaId = Guid.NewGuid(),
+            PessoaId = pessoaId,
             Nome = "",
+            OldCelular = oldCelular,
             Celular = 1111123456789
         };
+
+        _unitOfWorkStub.Setup(x => x.PessoaRepository.GetContatos(pessoaId)).ReturnsAsync(data);
 
         _unitOfWorkStub.Setup(x => x.ContatoRepository.UpdateAsync(It.IsAny<Contato>())).Verifiable();
         _unitOfWorkStub.Setup(x => x.SaveChangesAsync()).Verifiable();
 
         // Act
-        await _sut.UpdateContatoAsync(Guid.NewGuid(), model);
+        await _sut.UpdateContatoAsync(pessoaId, model);
 
         // Assert
         _unitOfWorkStub.Verify(x => x.ContatoRepository.UpdateAsync(It.IsAny<Contato>()), Times.Once);

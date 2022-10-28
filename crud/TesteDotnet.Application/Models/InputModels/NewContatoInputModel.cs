@@ -11,5 +11,8 @@ public class NewContatoInputModel
     public string Nome { get; set; } = null!;
 
     [Phone]
+    public long OldCelular { get; set; }
+
+    [Phone]
     public long Celular { get; set; }
 }
