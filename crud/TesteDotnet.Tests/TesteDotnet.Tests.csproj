@@ -25,6 +25,7 @@
     <ProjectReference Include="..\TesteDotnet.Domain\TesteDotnet.Domain.csproj" />
     <ProjectReference Include="..\TesteDotnet.Infrastructure\TesteDotnet.Infrastructure.csproj" />
     <ProjectReference Include="..\TesteDotnet.Application\TesteDotnet.Application.csproj" />
+    <ProjectReference Include="..\TesteDotnet.Api\TesteDotnet.Api.csproj" />
   </ItemGroup>
 
 </Project>
