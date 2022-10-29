@@ -14,4 +14,6 @@ public class Contato
         Nome = nome;
         Celular = celular;
     }
+    
+    public Contato() { }
 }
