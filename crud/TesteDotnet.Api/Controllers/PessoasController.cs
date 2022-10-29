@@ -14,7 +14,7 @@ public class PessoasController : ControllerBase
         _pessoaService = pessoaService;
     }
 
-    [HttpPost("/")]
+    [HttpPost("")]
     public async Task<IActionResult> CreateAsync([FromBody] NewPessoaInputModel model)
     {    
         var id = await _pessoaService.CreatePessoaAsync(model);
@@ -23,7 +23,7 @@ public class PessoasController : ControllerBase
         return CreatedAtAction(nameof(GetAsync), new { Id = id }, created);
     }
 
-    [HttpGet("/{id}")]
+    [HttpGet("{id}")]
     public async Task<IActionResult> GetAsync([FromRoute] Guid id)
     {
         var p = await _pessoaService.GetPessoaAsync(id);
@@ -39,7 +39,7 @@ public class PessoasController : ControllerBase
         return Ok(await _pessoaService.GetPessoasAsync());
     }
 
-    [HttpPut("/{id}")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] NewPessoaInputModel model)
     {
         var exists = (await _pessoaService.GetPessoaAsync(id)) != null;
