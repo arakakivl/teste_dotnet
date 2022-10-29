@@ -57,7 +57,7 @@ public class PessoaControllerTests
         var obj = result as OkObjectResult;
 
         // Assert
-        Assert.IsType<OkResult>(result);
+        Assert.IsType<OkObjectResult>(result);
 
         Assert.NotNull(obj?.Value);
         Assert.IsType<PessoaViewModel>(obj?.Value);
