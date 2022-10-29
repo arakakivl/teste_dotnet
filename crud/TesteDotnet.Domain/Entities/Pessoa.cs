@@ -24,4 +24,6 @@ public class Pessoa
         Nome = nome;
         Email = email;
     }
+    
+    public Pessoa() { }
 }
