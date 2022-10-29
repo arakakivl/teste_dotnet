@@ -17,7 +17,7 @@ public class ContatosController : ControllerBase
         _contatoService = contatoService;
     }
 
-    [HttpPost("/")]
+    [HttpPost("")]
     public async Task<IActionResult> CreateAsync([FromBody] NewContatoInputModel model)
     {
         var pessoaExists = await _pessoaService.GetPessoaAsync(model.PessoaId) != null;
@@ -30,7 +30,7 @@ public class ContatosController : ControllerBase
         return Ok();
     }
 
-    [HttpGet("/{pessoaId}")]
+    [HttpGet("{pessoaId}")]
     public async Task<IActionResult> GetAsync([FromRoute] Guid pessoaId, [FromQuery] long? celular)
     {
         var pessoaExists = await _pessoaService.GetPessoaAsync(pessoaId) != null;
@@ -43,7 +43,7 @@ public class ContatosController : ControllerBase
             return Ok(await _contatoService.GetContatoAsync(pessoaId, (long)celular));
     }
     
-    [HttpPut("/{pessoaId}")]
+    [HttpPut("{pessoaId}")]
     public async Task<IActionResult> UpdateAsync([FromRoute] Guid pessoaId, [FromBody] NewContatoInputModel model)
     {
         var pessoaExists = await _pessoaService.GetPessoaAsync(pessoaId) != null;
@@ -56,7 +56,7 @@ public class ContatosController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("/{pessoaId}")]
+    [HttpDelete("{pessoaId}")]
     public async Task<IActionResult> DeleteAsync([FromRoute] Guid pessoaId, [FromQuery] long celular)
     {
         var pessoaExists = await _pessoaService.GetPessoaAsync(pessoaId) != null;
