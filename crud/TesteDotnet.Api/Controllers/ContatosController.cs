@@ -5,7 +5,7 @@ using TesteDotnet.Application.Services.Interfaces;
 namespace TesteDotnet.Api.Controllers;
 
 [ApiController]
-[Route("/api/[controller]")]
+[Route("/api/contatos")]
 public class ContatosController : ControllerBase
 {
     private readonly IPessoaService _pessoaService;
